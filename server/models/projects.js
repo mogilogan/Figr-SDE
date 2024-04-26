@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const projectSchema = mongoose.Schema({
   email: { type: String, required: true },
-
+  name:{ type: String, required: true },
   colors: {
     primary: { type: String, required: true },
     secondary: { type: String, required: true },
@@ -26,7 +26,7 @@ const projectSchema = mongoose.Schema({
   bordercolor: { type: String, },
   borderradius: { type: String, },
   components: [
-    new Schema(
+    mongoose.Schema(
       {
         type: String,
         styles: String,

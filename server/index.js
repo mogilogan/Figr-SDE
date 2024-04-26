@@ -5,6 +5,7 @@ import cors from 'cors';
 
 
 import userRouter from "./routes/user.js";
+import projectRouter from "./routes/projects.js"
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(cors())
 
 
 app.use("/user", userRouter);
+app.use("/project", projectRouter);
 
 const CONNECTION_URL = 'mongodb+srv://mogi123:figrjob@figr.j2viybo.mongodb.net/?retryWrites=true&w=majority&appName=Figr';
 const PORT = process.env.PORT|| 5000;

@@ -6,6 +6,9 @@ import Auth from "./components/Auth/Auth";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
+import Projects from "./components/Projects/Projects";
+import Create from "./components/Projects/Create";
+
 
 const App = () => {
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -16,6 +19,8 @@ const App = () => {
       <Route path="/" exact element={<Navigate to="/Home" />} />
       <Route path="/Home" exact element={<Home/>} />
       <Route path="/Profile" exact element={<Profile/>} />
+      <Route path="/Projects" exact element={<Projects/>} />
+      <Route path="/Create" exact element={<Create/>} />
       <Route
   path="/auth"
   exact
