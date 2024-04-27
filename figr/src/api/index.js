@@ -20,4 +20,5 @@ export const updatePass = (formData) => API.post('/user/updatepass', formData);
 export const creatProjects = (formData) => API.post('/project/create', formData);
 export const fetchProjects = (formData) => API.post('/project/fetchprojects', formData);
 export const fetchProject = (formData) => API.post('/project/fetchproject', formData);
+export const updateProject = (formData) => API.post('/project/updateproject', formData);
 

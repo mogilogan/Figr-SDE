@@ -1,35 +1,39 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createproject } from "../../action/projects";
+import { useNavigate } from "react-router-dom";
 
-const initialState = {
-  email: "",
-  name: "",
-  colors: {
-    primary: "",
-    secondary: "",
-    tertiary: "",
-    quardinary: "",
-  },
-  radius: {
-    M: "",
-    Lg: "",
-    s: "",
-    Xl: "",
-  },
-  spacing: {
-    M: "",
-    Lg: "",
-    s: "",
-    Xl: "",
-  },
-};
+
 
 const Create = () => {
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-  const [formData, setFormData] = useState(initialState);
+  
 
+  const initialState = {
+    email: user?.result?.email,
+    name: "",
+    colors: {
+      primary: "",
+      secondary: "",
+      tertiary: "",
+      quardinary: "",
+    },
+    radius: {
+      M: "",
+      Lg: "",
+      s: "",
+      Xl: "",
+    },
+    spacing: {
+      M: "",
+      Lg: "",
+      s: "",
+      Xl: "",
+    },
+  };
+  const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,16 +47,20 @@ const Create = () => {
     } else {
       updatedFormData[name] = value;
     }
-
+    
     setFormData(updatedFormData);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user?.result?.email)
+   
+
     // Here you can submit the formData
-    setFormData({...formData,email:user?.result?.email})
+    
     dispatch(createproject(formData))
+    setFormData(initialState);
+    navigate("/projects");
+
     // Example: Submit formData to an API or perform other actions
   };
 
@@ -87,7 +95,7 @@ const Create = () => {
         <input type="text" id="MSpacing" name="spacing[M]"  onChange={handleChange} class="form-input mt-1 block w-full" placeholder="M Spacing" required/>
         <input type="text" id="LgSpacing" name="spacing[Lg]"  onChange={handleChange} class="form-input mt-1 block w-full" placeholder="Lg Spacing" required/>
         <input type="text" id="sSpacing" name="spacing[s]"  onChange={handleChange} class="form-input mt-1 block w-full" placeholder="S Spacing" required/>
-        <input type="text" id="XlSpacing" name="spacing[Xl]"  onChange={handleChange} class="form-input mt-1 block w-full" placeholder="XL Spacing" required/>
+        <input type="text" id="XlSpacing" name="spacing[Xl]"  onChange={handleChange} class="form-input mt-1 block w-full"  placeholder="XL Spacing" required/>
     </div>
     </div>
     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>

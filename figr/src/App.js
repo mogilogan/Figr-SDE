@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Projects from "./components/Projects/Projects";
 import Create from "./components/Projects/Create";
+import Edit from "./components/Projects/Edit";
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
       <Route path="/Profile" exact element={<Profile/>} />
       <Route path="/Projects" exact element={<Projects/>} />
       <Route path="/Create" exact element={<Create/>} />
+      <Route path="/Edit" exact element={<Edit/>} />
       <Route
   path="/auth"
   exact

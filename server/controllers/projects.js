@@ -62,3 +62,30 @@ console.log(req.body);
     console.log(error);
   }
 };
+
+export const updateProject = async (req, res) => {
+  const { email, colors, radius, spacing, name } = req.body;
+  console.log('OK');
+
+  try {
+    // Find the project by name
+    const oldProject = await ProjectModal.findOne({ name });
+
+    // If project with the same name doesn't exist, return 404
+    if (!oldProject) {
+      return res.status(404).json({ message: "Project with the given name does not exist!" });
+    }
+
+    // Update the project details
+    const updatedProject = await ProjectModal.findOneAndUpdate(
+      { name }, // Find by project name
+      { email, colors, radius, spacing }, // Update with new details
+      { new: true } // Return the updated document
+    );
+
+    res.status(200).json({ result: updatedProject });
+  } catch (error) {
+    res.status(500).json({ message: "Something went wrong" });
+    console.error(error);
+  }
+};

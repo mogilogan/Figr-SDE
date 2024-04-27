@@ -1,4 +1,4 @@
-import { AUTH, CREATE_PROJECT, FETCH_PROJECT, FETCH_PROJECTS } from '../constants/actionTypes';
+import { AUTH, CREATE_PROJECT, FETCH_PROJECT, FETCH_PROJECTS,UPDA, UPDATE_PROJECT } from '../constants/actionTypes';
 import * as api from '../api/index.js';
 
 export const createproject = (formData) => async (dispatch) => {
@@ -33,6 +33,18 @@ export const fetchprojects = (formData,setProjects) => async (dispatch) => {
    
     //   setMessage(data?.message);
     dispatch({ type: FETCH_PROJECT, data });
+     
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+  export const updateproject = (formData) => async (dispatch) => {
+    
+    try {
+      await api.updateProject(formData);
+    
      
     } catch (error) {
       console.log(error);
