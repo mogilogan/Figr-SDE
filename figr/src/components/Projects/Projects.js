@@ -29,7 +29,7 @@ const Projects = () => {
   }
 
   const fetchProjects = async () => {
-    const formData = { email: user.result.email };
+    const formData = { email: user?.result?.email };
     await dispatch(fetchprojects(formData));
   };
 
