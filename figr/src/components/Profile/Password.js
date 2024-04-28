@@ -54,7 +54,7 @@ const Password = ({setMessage,user,editPasswordMode,setEditPasswordMode}) => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               name="password"
               type="password"
-              value={passData.password}
+              value={passData?.password}
               onChange={handlepassChange}
               required
               disabled={!editPasswordMode}
@@ -66,7 +66,7 @@ const Password = ({setMessage,user,editPasswordMode,setEditPasswordMode}) => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               name="newPassword"
               type="password"
-              value={passData.newPassword}
+              value={passData?.newPassword}
               onChange={handlepassChange}
               required
               disabled={!editPasswordMode}
@@ -78,7 +78,7 @@ const Password = ({setMessage,user,editPasswordMode,setEditPasswordMode}) => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               name="confirmNewPassword"
               type="password"
-              value={passData.confirmNewPassword}
+              value={passData?.confirmNewPassword}
               onChange={handlepassChange}
               required
               disabled={!editPasswordMode}
