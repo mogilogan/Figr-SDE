@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const projectSchema = mongoose.Schema({
   email: { type: String, required: true },
-  name:{ type: String, required: true },
+  name: { type: String, required: true },
   colors: {
     primary: { type: String, required: true },
     secondary: { type: String, required: true },
@@ -21,15 +21,15 @@ const projectSchema = mongoose.Schema({
     s: { type: String, required: true },
     Xl: { type: String, required: true },
   },
-  backgroundcolor: { type: String,  },
-  textcolor: { type: String, },
-  bordercolor: { type: String, },
-  borderradius: { type: String, },
+  backgroundcolor: { type: String },
+  textcolor: { type: String },
+  bordercolor: { type: String },
+  borderradius: { type: String },
   components: [
     mongoose.Schema(
       {
-        type: String,
-        styles: String,
+        className:{type: String},
+        element:{type: String},
       },
       { _id: true }
     ),
